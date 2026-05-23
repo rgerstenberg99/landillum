@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | Landscape Illuminations</title>
+  <meta name="description" content="Landscape lighting services including uplighting, security lighting, patio and deck lighting, walkway lighting, and custom design in Birmingham and Lake Martin, AL." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #0a0a08; --dark: #111110; --dark2: #1a1a17; --dark3: #242420;
+      --gold: #c9a84c; --gold-light: #e2c47a; --gold-dim: rgba(201,168,76,0.15);
+      --cream: #f5f0e8; --cream-dim: rgba(245,240,232,0.7); --muted: rgba(245,240,232,0.4);
+      --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'Jost', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--cream); font-family: var(--sans); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 48px; height: 72px; display: flex; align-items: center; justify-content: space-between; background: rgba(10,10,8,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.12); }
+    .nav-logo { font-family: var(--serif); font-size: 1.25rem; font-weight: 400; color: var(--cream); text-decoration: none; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-cta { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); background: var(--gold); padding: 10px 24px; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--gold-light); }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .nav-toggle span { display: block; width: 24px; height: 1.5px; background: var(--cream); }
+    .mobile-menu { display: none; position: fixed; inset: 0; background: var(--black); z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: var(--serif); font-size: 2rem; color: var(--cream); text-decoration: none; }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-close { position: absolute; top: 24px; right: 24px; background: none; border: none; color: var(--muted); font-size: 2rem; cursor: pointer; }
+
+    .page-hero { padding: 160px 48px 100px; background: var(--dark2); position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; top: 0; right: 0; width: 40%; height: 100%; background: linear-gradient(to left, var(--gold-dim), transparent); }
+    .page-hero-inner { position: relative; z-index: 1; }
+    .page-eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+    .page-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+    .page-title { font-family: var(--serif); font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 300; line-height: 1.1; color: var(--cream); }
+    .page-title em { font-style: italic; color: var(--gold-light); }
+    .page-sub { font-size: 1rem; color: var(--cream-dim); max-width: 520px; margin-top: 20px; line-height: 1.8; }
+
+    section { padding: 100px 48px; }
+    .section-eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+    .section-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+    .section-title { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.15; color: var(--cream); margin-bottom: 20px; }
+    .section-title em { font-style: italic; color: var(--gold-light); }
+
+    /* SERVICE BLOCKS */
+    .service-block { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid rgba(201,168,76,0.1); }
+    .service-block:nth-child(even) { direction: rtl; }
+    .service-block:nth-child(even) > * { direction: ltr; }
+    .service-block:last-child { border-bottom: none; }
+
+    .service-img { aspect-ratio: 3/2; overflow: hidden; position: relative; }
+    .service-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s; }
+    .service-img:hover img { transform: scale(1.04); }
+    .service-img-placeholder { width: 100%; height: 100%; background: var(--dark3); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 0.8rem; letter-spacing: 0.1em; aspect-ratio: 3/2; }
+
+    .service-text { background: var(--dark2); padding: 60px 56px; display: flex; flex-direction: column; justify-content: center; }
+    .service-tag { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .service-text h2 { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 300; color: var(--cream); margin-bottom: 20px; line-height: 1.2; }
+    .service-text p { font-size: 0.9rem; color: var(--cream-dim); line-height: 1.85; margin-bottom: 16px; }
+    .service-bullets { list-style: none; margin-top: 8px; }
+    .service-bullets li { font-size: 0.85rem; color: var(--muted); padding: 8px 0; border-bottom: 1px solid rgba(201,168,76,0.1); display: flex; gap: 12px; align-items: flex-start; }
+    .service-bullets li::before { content: '→'; color: var(--gold); flex-shrink: 0; }
+
+    /* PROCESS */
+    .process { background: var(--black); }
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 64px; }
+    .process-step { background: var(--dark2); padding: 40px 32px; }
+    .step-num { font-family: var(--serif); font-size: 4rem; font-weight: 300; color: var(--gold-dim); line-height: 1; margin-bottom: 20px; display: block; }
+    .process-step h3 { font-family: var(--serif); font-size: 1.25rem; font-weight: 400; color: var(--cream); margin-bottom: 12px; }
+    .process-step p { font-size: 0.88rem; color: var(--muted); line-height: 1.75; }
+
+    .cta-banner { background: var(--gold); padding: 80px 48px; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+    .cta-banner h2 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: var(--black); line-height: 1.2; }
+    .cta-banner p { color: rgba(10,10,8,0.65); margin-top: 8px; font-size: 0.9rem; }
+    .btn-dark { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream); background: var(--black); padding: 16px 36px; text-decoration: none; white-space: nowrap; }
+    .btn-dark:hover { background: var(--dark3); }
+
+    footer { background: var(--dark2); padding: 80px 48px 40px; border-top: 1px solid rgba(201,168,76,0.1); }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; padding-bottom: 60px; border-bottom: 1px solid rgba(201,168,76,0.1); }
+    .footer-brand h3 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--cream); margin-bottom: 16px; }
+    .footer-brand p { font-size: 0.88rem; color: var(--muted); line-height: 1.8; max-width: 280px; }
+    .footer-col h4 { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul a { font-size: 0.88rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--cream); }
+    .footer-contact-item { display: flex; gap: 12px; margin-bottom: 16px; font-size: 0.88rem; color: var(--muted); }
+    .footer-contact-item strong { color: var(--cream-dim); }
+    .footer-bottom { padding-top: 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-bottom p { font-size: 0.78rem; color: var(--muted); }
+    .footer-bottom a { color: var(--gold); text-decoration: none; }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-toggle { display: flex; }
+      section, .page-hero { padding: 80px 24px; }
+      .service-block { grid-template-columns: 1fr; direction: ltr !important; }
+      .service-text { padding: 40px 28px; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .cta-banner { flex-direction: column; text-align: center; }
+      .footer-top { grid-template-columns: 1fr; gap: 40px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 600px) {
+      .process-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Landscape <span>Illuminations</span></a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="portfolio.html">Our Work</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Free Consultation</a>
+    <button class="nav-toggle" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">&times;</button>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Our Work</a>
+    <a href="reviews.html">Reviews</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html" style="color:var(--gold);">Free Consultation</a>
+  </div>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="page-eyebrow">What We Offer</p>
+      <h1 class="page-title">Every service.<br><em>One team.</em></h1>
+      <p class="page-sub">Every project starts with a free walkthrough of your property so we can make the right plan for your home.</p>
+    </div>
+  </div>
+
+  <!-- SERVICE BLOCKS -->
+  <div>
+
+    <div class="service-block">
+      <div class="service-img">
+        <img src="assets/images/service-uplighting.jpg" alt="Landscape Up-Lighting"
+             onerror="this.outerHTML='<div class=\'service-img-placeholder\'>Photo Coming Soon</div>'" />
+      </div>
+      <div class="service-text">
+        <p class="service-tag">Service 01</p>
+        <h2>Landscape Up-Lighting</h2>
+        <p>Highlight your trees, columns, and architectural details with carefully aimed fixtures that bring out the best of your home at night.</p>
+        <ul class="service-bullets">
+          <li>Tree and shrub uplighting</li>
+          <li>Column and pillar accents</li>
+          <li>Architectural facade lighting</li>
+          <li>Color temperature customization</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-block">
+      <div class="service-img">
+        <img src="assets/images/service-security.jpg" alt="Security Lighting"
+             onerror="this.outerHTML='<div class=\'service-img-placeholder\'>Photo Coming Soon</div>'" />
+      </div>
+      <div class="service-text">
+        <p class="service-tag">Service 02</p>
+        <h2>Security Lighting</h2>
+        <p>Light up the dark corners of your yard and keep your family safe — without making your home look like a parking lot.</p>
+        <ul class="service-bullets">
+          <li>Perimeter and corner coverage</li>
+          <li>Motion-activated options available</li>
+          <li>Garage and entry lighting</li>
+          <li>Seamlessly blends with landscape design</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-block">
+      <div class="service-img">
+        <img src="assets/images/service-patio.jpg" alt="Patio and Deck Lighting"
+             onerror="this.outerHTML='<div class=\'service-img-placeholder\'>Photo Coming Soon</div>'" />
+      </div>
+      <div class="service-text">
+        <p class="service-tag">Service 03</p>
+        <h2>Patio &amp; Deck Lighting</h2>
+        <p>Turn your outdoor space into somewhere you actually want to spend the evening. Great lighting makes all the difference between a space that gets used and one that doesn't.</p>
+        <ul class="service-bullets">
+          <li>Pergola and overhead string lighting</li>
+          <li>Step and railing lighting</li>
+          <li>Ambient and accent fixtures</li>
+          <li>Pool and water feature lighting</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-block">
+      <div class="service-img">
+        <img src="assets/images/service-walkway.jpg" alt="Walkway Lighting"
+             onerror="this.outerHTML='<div class=\'service-img-placeholder\'>Photo Coming Soon</div>'" />
+      </div>
+      <div class="service-text">
+        <p class="service-tag">Service 04</p>
+        <h2>Walkway Lighting</h2>
+        <p>Guide guests to your front door safely and in style. Low-profile fixtures that look great in daylight and create a welcoming glow after dark.</p>
+        <ul class="service-bullets">
+          <li>Path and border fixtures</li>
+          <li>Step and landing lights</li>
+          <li>Hidden wiring for clean installation</li>
+          <li>Integrated with overall landscape design</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-block">
+      <div class="service-img">
+        <img src="assets/images/service-driveway.jpg" alt="Driveway Lighting"
+             onerror="this.outerHTML='<div class=\'service-img-placeholder\'>Photo Coming Soon</div>'" />
+      </div>
+      <div class="service-text">
+        <p class="service-tag">Service 05</p>
+        <h2>Driveway Lighting</h2>
+        <p>Make a great first impression from the street and improve visibility when pulling in after dark. The right driveway lighting elevates your home's curb appeal dramatically.</p>
+        <ul class="service-bullets">
+          <li>Edge and border lighting</li>
+          <li>Entry gate and pillar accents</li>
+          <li>Solar and hardwired options</li>
+          <li>Coordinated with front facade lighting</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-block">
+      <div class="service-img">
+        <img src="assets/images/service-custom.jpg" alt="Custom Design"
+             onerror="this.outerHTML='<div class=\'service-img-placeholder\'>Photo Coming Soon</div>'" />
+      </div>
+      <div class="service-text">
+        <p class="service-tag">Service 06</p>
+        <h2>Custom Design</h2>
+        <p>Not sure what you need? No problem — we'll walk your property with you and put together a complete lighting plan that fits your home, your lifestyle, and your budget.</p>
+        <ul class="service-bullets">
+          <li>Full property consultation at no cost</li>
+          <li>Written lighting design plan provided</li>
+          <li>Phased installation options available</li>
+          <li>No pressure, no obligation</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PROCESS -->
+  <section class="process">
+    <p class="section-eyebrow">How It Works</p>
+    <h2 class="section-title">Simple from start<br><em>to switch-on.</em></h2>
+    <div class="process-steps">
+      <div class="process-step">
+        <span class="step-num">01</span>
+        <h3>You Reach Out</h3>
+        <p>Call, text, or fill out our form. We'll get back to you quickly to set up a free consultation.</p>
+      </div>
+      <div class="process-step">
+        <span class="step-num">02</span>
+        <h3>Free Site Visit</h3>
+        <p>We come to your property, walk the yard with you, and design a custom lighting plan at no cost.</p>
+      </div>
+      <div class="process-step">
+        <span class="step-num">03</span>
+        <h3>We Install It</h3>
+        <p>Our team handles everything — clean installation with hidden wiring and perfectly placed fixtures.</p>
+      </div>
+      <div class="process-step">
+        <span class="step-num">04</span>
+        <h3>You Love It</h3>
+        <p>We don't wrap up until you're 100% satisfied. Then sit back and enjoy your home every night.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <div>
+      <h2>Ready to get started?</h2>
+      <p>Free design consultation — no pressure, no obligation.</p>
+    </div>
+    <a href="contact.html" class="btn-dark">Book Your Free Consult</a>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>Landscape <span style="color:var(--gold)">Illuminations</span></h3>
+        <p>Custom landscape lighting design and installation for homeowners across Greater Birmingham and Lake Martin, Alabama.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Our Work</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-item"><strong>Phone</strong> 205-600-3960</div>
+        <div class="footer-contact-item"><strong>Email</strong> info@landscapeilluminations.com</div>
+        <div class="footer-contact-item"><strong>Area</strong> Birmingham &amp; Lake Martin, AL</div>
+        <div class="footer-contact-item"><strong>Hours</strong> Mon–Sat, 8am–6pm</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Landscape Illuminations &nbsp;·&nbsp; Hoover, AL</p>
+      <p>Website by <a href="#">Emerald Coast Design</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

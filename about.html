@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Landscape Illuminations</title>
+  <meta name="description" content="Learn about Landscape Illuminations — a locally owned outdoor lighting company serving Birmingham and Lake Martin, Alabama." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #0a0a08; --dark: #111110; --dark2: #1a1a17; --dark3: #242420;
+      --gold: #c9a84c; --gold-light: #e2c47a; --gold-dim: rgba(201,168,76,0.15);
+      --cream: #f5f0e8; --cream-dim: rgba(245,240,232,0.7); --muted: rgba(245,240,232,0.4);
+      --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'Jost', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--cream); font-family: var(--sans); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 48px; height: 72px; display: flex; align-items: center; justify-content: space-between; background: rgba(10,10,8,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.12); }
+    .nav-logo { font-family: var(--serif); font-size: 1.25rem; font-weight: 400; color: var(--cream); text-decoration: none; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-cta { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); background: var(--gold); padding: 10px 24px; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--gold-light); }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .nav-toggle span { display: block; width: 24px; height: 1.5px; background: var(--cream); }
+    .mobile-menu { display: none; position: fixed; inset: 0; background: var(--black); z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: var(--serif); font-size: 2rem; color: var(--cream); text-decoration: none; }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-close { position: absolute; top: 24px; right: 24px; background: none; border: none; color: var(--muted); font-size: 2rem; cursor: pointer; }
+
+    .page-hero { padding: 160px 48px 100px; background: var(--dark2); position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; top: 0; right: 0; width: 40%; height: 100%; background: linear-gradient(to left, var(--gold-dim), transparent); }
+    .page-hero-inner { position: relative; z-index: 1; }
+    .page-eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+    .page-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+    .page-title { font-family: var(--serif); font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 300; line-height: 1.1; color: var(--cream); }
+    .page-title em { font-style: italic; color: var(--gold-light); }
+
+    section { padding: 100px 48px; }
+    .section-eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+    .section-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+    .section-title { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.15; color: var(--cream); margin-bottom: 20px; }
+    .section-title em { font-style: italic; color: var(--gold-light); }
+
+    .story { background: var(--black); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .story-img { aspect-ratio: 4/5; overflow: hidden; position: relative; }
+    .story-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .story-img-placeholder { width: 100%; height: 100%; background: var(--dark3); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 0.8rem; letter-spacing: 0.1em; aspect-ratio: 4/5; }
+    .story-gold { position: absolute; top: -20px; right: -20px; width: 60px; height: 60px; background: var(--gold); }
+    .story-text p { color: var(--cream-dim); font-size: 0.95rem; line-height: 1.85; margin-bottom: 20px; }
+
+    .values { background: var(--dark2); }
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 64px; }
+    .value-card { background: var(--dark3); padding: 48px 36px; }
+    .value-num { font-family: var(--serif); font-size: 3rem; font-weight: 300; color: var(--gold-dim); line-height: 1; margin-bottom: 20px; display: block; }
+    .value-card h3 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--cream); margin-bottom: 12px; }
+    .value-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.75; }
+
+    .team { background: var(--black); }
+    .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3px; margin-top: 64px; }
+    .team-card { background: var(--dark2); display: flex; gap: 32px; padding: 40px; align-items: flex-start; }
+    .team-photo { width: 100px; height: 100px; flex-shrink: 0; overflow: hidden; }
+    .team-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .team-photo-placeholder { width: 100%; height: 100%; background: var(--dark3); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 0.65rem; letter-spacing: 0.08em; text-align: center; }
+    .team-info h3 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--cream); margin-bottom: 4px; }
+    .team-info span { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 12px; }
+    .team-info p { font-size: 0.88rem; color: var(--muted); line-height: 1.75; }
+
+    .service-area { background: var(--dark2); }
+    .area-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 48px; }
+    .area-item { background: var(--dark3); padding: 28px 24px; }
+    .area-item h4 { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; color: var(--cream); margin-bottom: 6px; }
+    .area-item p { font-size: 0.8rem; color: var(--muted); }
+
+    .cta-banner { background: var(--gold); padding: 80px 48px; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+    .cta-banner h2 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: var(--black); line-height: 1.2; }
+    .cta-banner p { color: rgba(10,10,8,0.65); margin-top: 8px; font-size: 0.9rem; }
+    .btn-dark { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream); background: var(--black); padding: 16px 36px; text-decoration: none; white-space: nowrap; transition: background 0.2s; }
+    .btn-dark:hover { background: var(--dark3); }
+
+    footer { background: var(--dark2); padding: 80px 48px 40px; border-top: 1px solid rgba(201,168,76,0.1); }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; padding-bottom: 60px; border-bottom: 1px solid rgba(201,168,76,0.1); }
+    .footer-brand h3 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--cream); margin-bottom: 16px; }
+    .footer-brand p { font-size: 0.88rem; color: var(--muted); line-height: 1.8; max-width: 280px; }
+    .footer-col h4 { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul a { font-size: 0.88rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--cream); }
+    .footer-contact-item { display: flex; gap: 12px; margin-bottom: 16px; font-size: 0.88rem; color: var(--muted); }
+    .footer-contact-item strong { color: var(--cream-dim); }
+    .footer-bottom { padding-top: 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-bottom p { font-size: 0.78rem; color: var(--muted); }
+    .footer-bottom a { color: var(--gold); text-decoration: none; }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-toggle { display: flex; }
+      section, .page-hero { padding: 80px 24px; }
+      .story { grid-template-columns: 1fr; gap: 40px; }
+      .values-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr; }
+      .area-grid { grid-template-columns: 1fr 1fr; }
+      .cta-banner { flex-direction: column; text-align: center; }
+      .footer-top { grid-template-columns: 1fr; gap: 40px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Landscape <span>Illuminations</span></a>
+    <ul class="nav-links">
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Our Work</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Free Consultation</a>
+    <button class="nav-toggle" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">&times;</button>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Our Work</a>
+    <a href="reviews.html">Reviews</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html" style="color:var(--gold);">Free Consultation</a>
+  </div>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="page-eyebrow">Our Story</p>
+      <h1 class="page-title">Locally owned.<br><em>Genuinely invested.</em></h1>
+    </div>
+  </div>
+
+  <!-- STORY -->
+  <section class="story">
+    <div class="story-img">
+      <img src="assets/images/about-team.jpg" alt="Landscape Illuminations team"
+           onerror="this.outerHTML='<div class=\'story-img-placeholder\'>Photo Coming Soon</div>'" />
+      <div class="story-gold"></div>
+    </div>
+    <div class="story-text">
+      <p class="section-eyebrow">Who We Are</p>
+      <h2 class="section-title">We're your neighbors,<br><em>not a franchise.</em></h2>
+      <p>Landscape Illuminations was founded right here in Hoover, Alabama by people who love this community. We started because we kept seeing beautiful homes that went completely unnoticed after dark — and we knew we could change that.</p>
+      <p>We're not a national franchise with a call center. When you reach out to us, you're talking to the same people who will show up at your door, walk your property with you, and install your lighting by hand.</p>
+      <p>Our service area covers Greater Birmingham, surrounding communities like Mountain Brook, Vestavia Hills, and Hoover, as well as the Lake Martin area — a region we love and take pride in serving.</p>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="values">
+    <p class="section-eyebrow">What Drives Us</p>
+    <h2 class="section-title">Our values aren't on a wall.<br><em>They're in every install.</em></h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <span class="value-num">01</span>
+        <h3>Honesty First</h3>
+        <p>We'll tell you what your home actually needs — not what costs the most. Free consultations come with zero pressure and zero obligation.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-num">02</span>
+        <h3>Stay Until It's Right</h3>
+        <p>We don't leave until you're completely satisfied. That's not a slogan — it's how every single job gets finished.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-num">03</span>
+        <h3>Built to Last</h3>
+        <p>We use energy-efficient LED fixtures designed for years of reliable performance, regardless of the weather.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team">
+    <p class="section-eyebrow">The People</p>
+    <h2 class="section-title">The team behind<br><em>every project.</em></h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-photo">
+          <img src="assets/images/team-1.jpg" alt="Team member"
+               onerror="this.outerHTML='<div class=\'team-photo-placeholder\'>Photo<br>Coming<br>Soon</div>'" />
+        </div>
+        <div class="team-info">
+          <h3>Owner / Lead Designer</h3>
+          <span>Hoover, Alabama</span>
+          <p>Handles every consultation personally. Believes the right lighting plan starts with actually listening to the homeowner.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo">
+          <img src="assets/images/team-2.jpg" alt="Team member"
+               onerror="this.outerHTML='<div class=\'team-photo-placeholder\'>Photo<br>Coming<br>Soon</div>'" />
+        </div>
+        <div class="team-info">
+          <h3>Lead Installer</h3>
+          <span>Birmingham, Alabama</span>
+          <p>Meticulous about clean installs, hidden wiring, and making sure every fixture is aimed exactly right before leaving.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="service-area">
+    <p class="section-eyebrow">Where We Work</p>
+    <h2 class="section-title">Proud to serve<br><em>these communities.</em></h2>
+    <div class="area-grid">
+      <div class="area-item"><h4>Birmingham</h4><p>Greater Birmingham area</p></div>
+      <div class="area-item"><h4>Hoover</h4><p>Our home base</p></div>
+      <div class="area-item"><h4>Mountain Brook</h4><p>Birmingham suburb</p></div>
+      <div class="area-item"><h4>Vestavia Hills</h4><p>Birmingham suburb</p></div>
+      <div class="area-item"><h4>Homewood</h4><p>Birmingham suburb</p></div>
+      <div class="area-item"><h4>Trussville</h4><p>Birmingham area</p></div>
+      <div class="area-item"><h4>Lake Martin</h4><p>Full lake area coverage</p></div>
+      <div class="area-item"><h4>Surrounding Areas</h4><p>Call to confirm coverage</p></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-banner">
+    <div>
+      <h2>Come meet us in person.</h2>
+      <p>Free design consultation — no pressure, no obligation.</p>
+    </div>
+    <a href="contact.html" class="btn-dark">Book Your Free Consult</a>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>Landscape <span style="color:var(--gold)">Illuminations</span></h3>
+        <p>Custom landscape lighting design and installation for homeowners across Greater Birmingham and Lake Martin, Alabama.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Our Work</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-item"><strong>Phone</strong> 205-600-3960</div>
+        <div class="footer-contact-item"><strong>Email</strong> info@landscapeilluminations.com</div>
+        <div class="footer-contact-item"><strong>Area</strong> Birmingham &amp; Lake Martin, AL</div>
+        <div class="footer-contact-item"><strong>Hours</strong> Mon–Sat, 8am–6pm</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Landscape Illuminations &nbsp;·&nbsp; Hoover, AL</p>
+      <p>Website by <a href="#">Emerald Coast Design</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

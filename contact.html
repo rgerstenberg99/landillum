@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Landscape Illuminations</title>
+  <meta name="description" content="Contact Landscape Illuminations to schedule your free design consultation for outdoor lighting in Birmingham and Lake Martin, Alabama." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #0a0a08; --dark: #111110; --dark2: #1a1a17; --dark3: #242420;
+      --gold: #c9a84c; --gold-light: #e2c47a; --gold-dim: rgba(201,168,76,0.15);
+      --cream: #f5f0e8; --cream-dim: rgba(245,240,232,0.7); --muted: rgba(245,240,232,0.4);
+      --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'Jost', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--cream); font-family: var(--sans); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 48px; height: 72px; display: flex; align-items: center; justify-content: space-between; background: rgba(10,10,8,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.12); }
+    .nav-logo { font-family: var(--serif); font-size: 1.25rem; font-weight: 400; color: var(--cream); text-decoration: none; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-cta { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); background: var(--gold); padding: 10px 24px; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--gold-light); }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .nav-toggle span { display: block; width: 24px; height: 1.5px; background: var(--cream); }
+    .mobile-menu { display: none; position: fixed; inset: 0; background: var(--black); z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: var(--serif); font-size: 2rem; color: var(--cream); text-decoration: none; }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-close { position: absolute; top: 24px; right: 24px; background: none; border: none; color: var(--muted); font-size: 2rem; cursor: pointer; }
+
+    .page-hero { padding: 160px 48px 100px; background: var(--dark2); position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; top: 0; right: 0; width: 40%; height: 100%; background: linear-gradient(to left, var(--gold-dim), transparent); }
+    .page-hero-inner { position: relative; z-index: 1; }
+    .page-eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+    .page-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+    .page-title { font-family: var(--serif); font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 300; line-height: 1.1; color: var(--cream); }
+    .page-title em { font-style: italic; color: var(--gold-light); }
+    .page-sub { font-size: 1rem; color: var(--cream-dim); max-width: 520px; margin-top: 20px; line-height: 1.8; }
+
+    /* CONTACT LAYOUT */
+    .contact-section { padding: 100px 48px; background: var(--black); display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: start; }
+
+    /* INFO SIDE */
+    .contact-info { }
+    .info-block { margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(201,168,76,0.12); }
+    .info-block:last-child { border-bottom: none; }
+    .info-label { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .info-value { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--cream); }
+    .info-value a { color: inherit; text-decoration: none; transition: color 0.2s; }
+    .info-value a:hover { color: var(--gold); }
+    .info-sub { font-size: 0.82rem; color: var(--muted); margin-top: 6px; }
+
+    .hours-grid { display: grid; gap: 8px; margin-top: 12px; }
+    .hours-row { display: flex; justify-content: space-between; font-size: 0.85rem; }
+    .hours-day { color: var(--cream-dim); }
+    .hours-time { color: var(--muted); }
+
+    /* FORM SIDE */
+    .contact-form-wrap { background: var(--dark2); padding: 56px; }
+    .form-title { font-family: var(--serif); font-size: 1.8rem; font-weight: 300; color: var(--cream); margin-bottom: 8px; }
+    .form-sub { font-size: 0.85rem; color: var(--muted); margin-bottom: 40px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group.full { grid-column: 1 / -1; }
+
+    label { display: block; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+
+    input, select, textarea {
+      width: 100%;
+      background: var(--dark3);
+      border: 1px solid rgba(201,168,76,0.12);
+      color: var(--cream);
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      font-weight: 300;
+      padding: 14px 16px;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--gold); }
+    input::placeholder, textarea::placeholder { color: var(--muted); }
+    select option { background: var(--dark2); }
+    textarea { resize: vertical; min-height: 120px; }
+
+    .form-submit {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--gold);
+      border: none;
+      padding: 18px 40px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 8px;
+      transition: background 0.2s;
+    }
+    .form-submit:hover { background: var(--gold-light); }
+
+    .form-note { font-size: 0.75rem; color: var(--muted); text-align: center; margin-top: 16px; }
+
+    .success-msg { display: none; background: var(--dark3); border: 1px solid var(--gold); padding: 24px; text-align: center; margin-top: 24px; }
+    .success-msg p { color: var(--cream); font-size: 0.9rem; }
+    .success-msg strong { color: var(--gold); }
+
+    footer { background: var(--dark2); padding: 80px 48px 40px; border-top: 1px solid rgba(201,168,76,0.1); }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; padding-bottom: 60px; border-bottom: 1px solid rgba(201,168,76,0.1); }
+    .footer-brand h3 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--cream); margin-bottom: 16px; }
+    .footer-brand p { font-size: 0.88rem; color: var(--muted); line-height: 1.8; max-width: 280px; }
+    .footer-col h4 { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul a { font-size: 0.88rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--cream); }
+    .footer-contact-item { display: flex; gap: 12px; margin-bottom: 16px; font-size: 0.88rem; color: var(--muted); }
+    .footer-contact-item strong { color: var(--cream-dim); }
+    .footer-bottom { padding-top: 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-bottom p { font-size: 0.78rem; color: var(--muted); }
+    .footer-bottom a { color: var(--gold); text-decoration: none; }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-toggle { display: flex; }
+      .page-hero { padding: 120px 24px 80px; }
+      .contact-section { grid-template-columns: 1fr; gap: 48px; padding: 60px 24px; }
+      .contact-form-wrap { padding: 36px 24px; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 40px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      footer { padding: 60px 24px 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Landscape <span>Illuminations</span></a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Our Work</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta active">Free Consultation</a>
+    <button class="nav-toggle" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">&times;</button>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Our Work</a>
+    <a href="reviews.html">Reviews</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html" style="color:var(--gold);">Free Consultation</a>
+  </div>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="page-eyebrow">Get in Touch</p>
+      <h1 class="page-title">Let's talk about<br><em>your property.</em></h1>
+      <p class="page-sub">Reach out any way that works for you. There's never any pressure — just an honest conversation about what good lighting can do for your home.</p>
+    </div>
+  </div>
+
+  <div class="contact-section">
+
+    <!-- Info -->
+    <div class="contact-info">
+      <div class="info-block">
+        <p class="info-label">Call or Text</p>
+        <p class="info-value"><a href="tel:2056003960">205-600-3960</a></p>
+        <p class="info-sub">We respond quickly</p>
+      </div>
+      <div class="info-block">
+        <p class="info-label">Email</p>
+        <p class="info-value" style="font-size:1.1rem"><a href="mailto:info@landscapeilluminations.com">info@landscapeilluminations.com</a></p>
+        <p class="info-sub">We reply within a few hours</p>
+      </div>
+      <div class="info-block">
+        <p class="info-label">Based In</p>
+        <p class="info-value">Hoover, Alabama</p>
+        <p class="info-sub">Serving Greater Birmingham &amp; Lake Martin</p>
+      </div>
+      <div class="info-block">
+        <p class="info-label">Hours</p>
+        <div class="hours-grid">
+          <div class="hours-row"><span class="hours-day">Monday – Saturday</span><span class="hours-time">8:00 AM – 6:00 PM</span></div>
+          <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time">Closed</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <div class="contact-form-wrap">
+      <h2 class="form-title">Request a Free Consultation</h2>
+      <p class="form-sub">Fill this out and we'll get back to you within a few hours.</p>
+
+      <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+        <!-- Replace with your actual Web3Forms access key -->
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+        <input type="hidden" name="subject" value="New Consultation Request — Landscape Illuminations" />
+        <input type="hidden" name="from_name" value="Landscape Illuminations Website" />
+        <input type="checkbox" name="botcheck" style="display:none" />
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="John Smith" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="205-555-0100" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="john@example.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="address">Property Address</label>
+          <input type="text" id="address" name="address" placeholder="123 Oak Lane, Hoover, AL" />
+        </div>
+
+        <div class="form-group">
+          <label for="service">What Are You Interested In?</label>
+          <select id="service" name="service">
+            <option value="">Select a service...</option>
+            <option value="Landscape Up-Lighting">Landscape Up-Lighting</option>
+            <option value="Security Lighting">Security Lighting</option>
+            <option value="Patio & Deck Lighting">Patio &amp; Deck Lighting</option>
+            <option value="Walkway Lighting">Walkway Lighting</option>
+            <option value="Driveway Lighting">Driveway Lighting</option>
+            <option value="Custom Design / Not Sure">Custom Design / Not Sure</option>
+            <option value="Full Property Package">Full Property Package</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Anything Else We Should Know?</label>
+          <textarea id="message" name="message" placeholder="Tell us about your property, goals, or any questions you have..."></textarea>
+        </div>
+
+        <button type="submit" class="form-submit">Send My Request →</button>
+        <p class="form-note">Your info stays private. No spam, ever.</p>
+      </form>
+
+      <div class="success-msg" id="successMsg">
+        <p><strong>Thank you!</strong> We received your request and will be in touch within a few hours.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>Landscape <span style="color:var(--gold)">Illuminations</span></h3>
+        <p>Custom landscape lighting design and installation for homeowners across Greater Birmingham and Lake Martin, Alabama.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Our Work</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-item"><strong>Phone</strong> 205-600-3960</div>
+        <div class="footer-contact-item"><strong>Email</strong> info@landscapeilluminations.com</div>
+        <div class="footer-contact-item"><strong>Area</strong> Birmingham &amp; Lake Martin, AL</div>
+        <div class="footer-contact-item"><strong>Hours</strong> Mon–Sat, 8am–6pm</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Landscape Illuminations &nbsp;·&nbsp; Hoover, AL</p>
+      <p>Website by <a href="#">Emerald Coast Design</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('.form-submit');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: new FormData(this)
+        });
+        if (res.ok) {
+          this.style.display = 'none';
+          document.getElementById('successMsg').style.display = 'block';
+        } else {
+          btn.textContent = 'Send My Request →';
+          btn.disabled = false;
+          alert('Something went wrong. Please call or email us directly.');
+        }
+      } catch {
+        btn.textContent = 'Send My Request →';
+        btn.disabled = false;
+        alert('Something went wrong. Please call or email us directly.');
+      }
+    });
+  </script>
+
+</body>
+</html>

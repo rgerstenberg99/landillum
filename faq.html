@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ | Landscape Illuminations</title>
+  <meta name="description" content="Frequently asked questions about landscape lighting installation, costs, and process from Landscape Illuminations in Birmingham, AL." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #0a0a08; --dark: #111110; --dark2: #1a1a17; --dark3: #242420;
+      --gold: #c9a84c; --gold-light: #e2c47a; --gold-dim: rgba(201,168,76,0.15);
+      --cream: #f5f0e8; --cream-dim: rgba(245,240,232,0.7); --muted: rgba(245,240,232,0.4);
+      --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'Jost', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--cream); font-family: var(--sans); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 48px; height: 72px; display: flex; align-items: center; justify-content: space-between; background: rgba(10,10,8,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.12); }
+    .nav-logo { font-family: var(--serif); font-size: 1.25rem; font-weight: 400; color: var(--cream); text-decoration: none; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-cta { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); background: var(--gold); padding: 10px 24px; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--gold-light); }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .nav-toggle span { display: block; width: 24px; height: 1.5px; background: var(--cream); }
+    .mobile-menu { display: none; position: fixed; inset: 0; background: var(--black); z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: var(--serif); font-size: 2rem; color: var(--cream); text-decoration: none; }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-close { position: absolute; top: 24px; right: 24px; background: none; border: none; color: var(--muted); font-size: 2rem; cursor: pointer; }
+
+    .page-hero { padding: 160px 48px 100px; background: var(--dark2); position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; top: 0; right: 0; width: 40%; height: 100%; background: linear-gradient(to left, var(--gold-dim), transparent); }
+    .page-hero-inner { position: relative; z-index: 1; }
+    .page-eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+    .page-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+    .page-title { font-family: var(--serif); font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 300; line-height: 1.1; color: var(--cream); }
+    .page-title em { font-style: italic; color: var(--gold-light); }
+    .page-sub { font-size: 1rem; color: var(--cream-dim); max-width: 520px; margin-top: 20px; line-height: 1.8; }
+
+    /* FAQ */
+    .faq-section { padding: 100px 48px; background: var(--black); display: grid; grid-template-columns: 280px 1fr; gap: 80px; align-items: start; }
+
+    .faq-sidebar h3 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--cream); margin-bottom: 24px; }
+    .faq-sidebar ul { list-style: none; }
+    .faq-sidebar ul li { margin-bottom: 8px; }
+    .faq-sidebar ul a { font-size: 0.82rem; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color 0.2s; padding: 6px 0; border-bottom: 1px solid rgba(201,168,76,0.08); }
+    .faq-sidebar ul a:hover { color: var(--gold); }
+    .faq-sidebar ul a::before { content: '→'; color: var(--gold); font-size: 0.8rem; flex-shrink: 0; }
+
+    .faq-content { }
+    .faq-group { margin-bottom: 56px; }
+    .faq-group-title { font-family: var(--serif); font-size: 1.6rem; font-weight: 400; color: var(--gold-light); margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid rgba(201,168,76,0.15); }
+
+    .faq-item { border-bottom: 1px solid rgba(245,240,232,0.08); }
+    .faq-question { width: 100%; background: none; border: none; color: var(--cream); font-family: var(--sans); font-size: 0.95rem; font-weight: 400; text-align: left; padding: 22px 0; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; transition: color 0.2s; }
+    .faq-question:hover { color: var(--gold); }
+    .faq-icon { color: var(--gold); font-size: 1.4rem; font-weight: 300; flex-shrink: 0; transition: transform 0.3s; line-height: 1; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-answer-inner { font-size: 0.9rem; color: var(--cream-dim); line-height: 1.85; padding-bottom: 24px; }
+    .faq-item.open .faq-answer { max-height: 400px; }
+
+    .cta-banner { background: var(--gold); padding: 80px 48px; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+    .cta-banner h2 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: var(--black); line-height: 1.2; }
+    .cta-banner p { color: rgba(10,10,8,0.65); margin-top: 8px; font-size: 0.9rem; }
+    .btn-dark { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream); background: var(--black); padding: 16px 36px; text-decoration: none; white-space: nowrap; }
+    .btn-dark:hover { background: var(--dark3); }
+
+    footer { background: var(--dark2); padding: 80px 48px 40px; border-top: 1px solid rgba(201,168,76,0.1); }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; padding-bottom: 60px; border-bottom: 1px solid rgba(201,168,76,0.1); }
+    .footer-brand h3 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--cream); margin-bottom: 16px; }
+    .footer-brand p { font-size: 0.88rem; color: var(--muted); line-height: 1.8; max-width: 280px; }
+    .footer-col h4 { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul a { font-size: 0.88rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--cream); }
+    .footer-contact-item { display: flex; gap: 12px; margin-bottom: 16px; font-size: 0.88rem; color: var(--muted); }
+    .footer-contact-item strong { color: var(--cream-dim); }
+    .footer-bottom { padding-top: 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-bottom p { font-size: 0.78rem; color: var(--muted); }
+    .footer-bottom a { color: var(--gold); text-decoration: none; }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-toggle { display: flex; }
+      .page-hero { padding: 120px 24px 80px; }
+      .faq-section { grid-template-columns: 1fr; gap: 40px; padding: 60px 24px; }
+      .faq-sidebar { display: none; }
+      .cta-banner { flex-direction: column; text-align: center; padding: 60px 24px; }
+      .footer-top { grid-template-columns: 1fr; gap: 40px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      footer { padding: 60px 24px 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Landscape <span>Illuminations</span></a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Our Work</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="faq.html" class="active">FAQ</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Free Consultation</a>
+    <button class="nav-toggle" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">&times;</button>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Our Work</a>
+    <a href="reviews.html">Reviews</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html" style="color:var(--gold);">Free Consultation</a>
+  </div>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="page-eyebrow">Common Questions</p>
+      <h1 class="page-title">Answers before<br><em>you even ask.</em></h1>
+      <p class="page-sub">Everything you want to know about landscape lighting, our process, and what to expect when you work with us.</p>
+    </div>
+  </div>
+
+  <div class="faq-section">
+
+    <!-- Sidebar -->
+    <div class="faq-sidebar">
+      <h3>Jump to a topic</h3>
+      <ul>
+        <li><a href="#getting-started">Getting Started</a></li>
+        <li><a href="#cost">Cost &amp; Pricing</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#products">Products &amp; Technology</a></li>
+        <li><a href="#maintenance">Maintenance</a></li>
+        <li><a href="#service-area">Service Area</a></li>
+      </ul>
+    </div>
+
+    <!-- FAQ Content -->
+    <div class="faq-content">
+
+      <div class="faq-group" id="getting-started">
+        <h2 class="faq-group-title">Getting Started</h2>
+
+        <div class="faq-item">
+          <button class="faq-question">Is the design consultation really free? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Yes — completely free, with no obligation whatsoever. We'll come to your property, walk the yard with you, and put together a custom lighting design at no cost. You're not committing to anything by scheduling a consult.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">What happens during the consultation? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">We'll walk the full property with you and talk through what you're hoping to achieve — whether that's curb appeal, security, entertaining space, or all of the above. We'll take notes, discuss options, and put together a written plan with pricing before we leave. No pressure to commit.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">How quickly can you get started after I say yes? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Typically within one to two weeks, depending on the time of year. We'll give you a clear installation date when you approve the project.</div></div>
+        </div>
+
+      </div>
+
+      <div class="faq-group" id="cost">
+        <h2 class="faq-group-title">Cost &amp; Pricing</h2>
+
+        <div class="faq-item">
+          <button class="faq-question">How much does landscape lighting cost? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Every project is different depending on the size of the property and the scope of work. A starter package for a front entry and a few trees typically starts around $1,500–$2,500. Full property packages vary widely. We'll give you an exact quote during the free consultation.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Do you offer phased installations? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Absolutely. Many homeowners start with the front of the house and add the back yard or other areas later. We can design the full system from the beginning so it all works together seamlessly when you're ready.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Will my energy bill go up significantly? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">No — all of our installs use LED fixtures, which are extremely energy efficient. A typical full system running on a timer costs between $10–$25 per month in electricity, depending on the number of fixtures and your local rates.</div></div>
+        </div>
+
+      </div>
+
+      <div class="faq-group" id="installation">
+        <h2 class="faq-group-title">Installation</h2>
+
+        <div class="faq-item">
+          <button class="faq-question">How long does installation take? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Most residential installs are completed in a single day. Larger properties or more complex designs may take two days. We'll give you a clear timeframe when we provide your quote.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Will the wiring be hidden? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Yes. We take great care to route all wiring cleanly and out of sight — along edges, under mulch, or through conduit where appropriate. Our goal is for the finished install to look like it was always there.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Do you do the work yourselves, or subcontract? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">We do the work ourselves. The same people who consult with you are the ones installing your lighting. We don't subcontract — that's how we maintain the quality and care we're known for.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">What if I'm not happy with how something looks? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">We do a walkthrough with you at the end of every job — at night, with everything powered on — so you can see exactly how it looks. If anything isn't right, we adjust it before we leave. We don't call a job done until you say it's done.</div></div>
+        </div>
+
+      </div>
+
+      <div class="faq-group" id="products">
+        <h2 class="faq-group-title">Products &amp; Technology</h2>
+
+        <div class="faq-item">
+          <button class="faq-question">What brands do you use? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">We use professional-grade fixtures from trusted manufacturers built for longevity in outdoor conditions. We'll discuss fixture options during the consultation based on your specific goals and budget.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Can the lighting be controlled from my phone? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Yes — we offer smart timer and app-controlled systems that let you set schedules, adjust brightness, and control everything from your phone. We'll walk you through the options during the consultation.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Do you use LED fixtures? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Yes — exclusively. LED fixtures use a fraction of the energy of halogen, produce a better, more consistent light, and last significantly longer. There's no reason to use anything else for outdoor lighting today.</div></div>
+        </div>
+
+      </div>
+
+      <div class="faq-group" id="maintenance">
+        <h2 class="faq-group-title">Maintenance</h2>
+
+        <div class="faq-item">
+          <button class="faq-question">How much maintenance does landscape lighting require? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Very little. LED fixtures are designed to last for years without attention. Occasionally a timer may need adjusting with the seasons, or a fixture may need to be repositioned after landscaping work. We're always a call away if anything needs attention.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">What if a fixture is damaged or stops working? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Give us a call and we'll come take a look. We stand behind our work and want your system running perfectly long after installation day.</div></div>
+        </div>
+
+      </div>
+
+      <div class="faq-group" id="service-area">
+        <h2 class="faq-group-title">Service Area</h2>
+
+        <div class="faq-item">
+          <button class="faq-question">What areas do you serve? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">We serve Greater Birmingham and the surrounding communities — including Hoover, Mountain Brook, Vestavia Hills, Homewood, Trussville, and more — as well as the Lake Martin area. If you're not sure whether we cover your area, just give us a call.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Do you travel to Lake Martin for installations? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Yes — Lake Martin is one of our most popular service areas. Many of our clients have lake homes they want lit beautifully for summer evenings. We service the full lake area.</div></div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="cta-banner">
+    <div>
+      <h2>Still have questions?</h2>
+      <p>Just reach out — we're happy to talk through anything.</p>
+    </div>
+    <a href="contact.html" class="btn-dark">Get in Touch</a>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>Landscape <span style="color:var(--gold)">Illuminations</span></h3>
+        <p>Custom landscape lighting design and installation for homeowners across Greater Birmingham and Lake Martin, Alabama.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Our Work</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-item"><strong>Phone</strong> 205-600-3960</div>
+        <div class="footer-contact-item"><strong>Email</strong> info@landscapeilluminations.com</div>
+        <div class="footer-contact-item"><strong>Area</strong> Birmingham &amp; Lake Martin, AL</div>
+        <div class="footer-contact-item"><strong>Hours</strong> Mon–Sat, 8am–6pm</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Landscape Illuminations &nbsp;·&nbsp; Hoover, AL</p>
+      <p>Website by <a href="#">Emerald Coast Design</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const item = this.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
+
+</body>
+</html>
