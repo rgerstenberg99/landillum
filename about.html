@@ -50,7 +50,7 @@
     .section-title em { font-style: italic; color: var(--gold-light); }
 
     .story { background: var(--black); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .story-img { aspect-ratio: 4/5; overflow: hidden; position: relative; }
+    .story-img { aspect-ratio: 4/3; overflow: hidden; position: relative; }
     .story-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .story-img-placeholder { width: 100%; height: 100%; background: var(--dark3); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 0.8rem; letter-spacing: 0.1em; aspect-ratio: 4/5; }
     .story-gold { position: absolute; top: -20px; right: -20px; width: 60px; height: 60px; background: var(--gold); }
@@ -162,9 +162,8 @@
   <!-- STORY -->
   <section class="story">
     <div class="story-img">
-      <img loading="lazy" decoding="async" src="assets/images/colonial-uplighting.webp" alt="Landscape Illuminations team"
+      <img loading="lazy" decoding="async" src="assets/images/estate-night.webp" alt="Completed landscape lighting project in Hoover, Alabama"
            onerror="this.outerHTML='<div class=\'story-img-placeholder\'>Photo Coming Soon</div>'" />
-      <div class="story-gold"></div>
     </div>
     <div class="story-text">
       <p class="section-eyebrow">Who We Are</p>
