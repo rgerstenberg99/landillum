@@ -7,17 +7,17 @@
   <meta name="description" content="Landscape Illuminations is a locally owned outdoor lighting company serving Greater Birmingham and Lake Martin, AL. Meet the team behind every project." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --black: #0a0a08; --dark: #111110; --dark2: #1a1a17; --dark3: #242420;
       --gold: #c9a84c; --gold-light: #e2c47a; --gold-dim: rgba(201,168,76,0.15);
-      --cream: #f5f0e8; --cream-dim: rgba(245,240,232,0.7); --muted: rgba(245,240,232,0.4);
+      --cream: #f5f0e8; --cream-dim: rgba(245,240,232,0.82); --muted: rgba(245,240,232,0.62);
       --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'Jost', sans-serif;
     }
-    html { scroll-behavior: smooth; }
-    body { background: var(--black); color: var(--cream); font-family: var(--sans); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+    html { scroll-behavior: smooth; font-size: 110%; }
+    body { background: var(--black); color: var(--cream); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
 
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 48px; height: 72px; display: flex; align-items: center; justify-content: space-between; background: rgba(10,10,8,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.12); }
     .nav-logo { font-family: var(--serif); font-size: 1.25rem; font-weight: 400; color: var(--cream); text-decoration: none; }
@@ -38,15 +38,15 @@
     .page-hero { padding: 160px 48px 100px; background: var(--dark2); position: relative; overflow: hidden; }
     .page-hero::before { content: ''; position: absolute; top: 0; right: 0; width: 40%; height: 100%; background: linear-gradient(to left, var(--gold-dim), transparent); }
     .page-hero-inner { position: relative; z-index: 1; }
-    .page-eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+    .page-eyebrow { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
     .page-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
-    .page-title { font-family: var(--serif); font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 300; line-height: 1.1; color: var(--cream); }
+    .page-title { font-family: var(--serif); font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 400; line-height: 1.1; color: var(--cream); }
     .page-title em { font-style: italic; color: var(--gold-light); }
 
     section { padding: 100px 48px; }
-    .section-eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+    .section-eyebrow { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
     .section-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
-    .section-title { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.15; color: var(--cream); margin-bottom: 20px; }
+    .section-title { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 400; line-height: 1.15; color: var(--cream); margin-bottom: 20px; }
     .section-title em { font-style: italic; color: var(--gold-light); }
 
     .story { background: var(--black); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
@@ -59,7 +59,7 @@
     .values { background: var(--dark2); }
     .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 64px; }
     .value-card { background: var(--dark3); padding: 48px 36px; }
-    .value-num { font-family: var(--serif); font-size: 3rem; font-weight: 300; color: var(--gold-dim); line-height: 1; margin-bottom: 20px; display: block; }
+    .value-num { font-family: var(--serif); font-size: 3rem; font-weight: 400; color: var(--gold-dim); line-height: 1; margin-bottom: 20px; display: block; }
     .value-card h3 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--cream); margin-bottom: 12px; }
     .value-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.75; }
 
@@ -68,9 +68,9 @@
     .team-card { background: var(--dark2); display: flex; gap: 32px; padding: 40px; align-items: flex-start; }
     .team-photo { width: 100px; height: 100px; flex-shrink: 0; overflow: hidden; }
     .team-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .team-photo-placeholder { width: 100%; height: 100%; background: var(--dark3); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 0.65rem; letter-spacing: 0.08em; text-align: center; }
+    .team-photo-placeholder { width: 100%; height: 100%; background: var(--dark3); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 0.78rem; letter-spacing: 0.08em; text-align: center; }
     .team-info h3 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--cream); margin-bottom: 4px; }
-    .team-info span { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 12px; }
+    .team-info span { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 12px; }
     .team-info p { font-size: 0.88rem; color: var(--muted); line-height: 1.75; }
 
     .service-area { background: var(--dark2); }
@@ -80,7 +80,7 @@
     .area-item p { font-size: 0.8rem; color: var(--muted); }
 
     .cta-banner { background: var(--gold); padding: 80px 48px; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
-    .cta-banner h2 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: var(--black); line-height: 1.2; }
+    .cta-banner h2 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; color: var(--black); line-height: 1.2; }
     .cta-banner p { color: rgba(10,10,8,0.65); margin-top: 8px; font-size: 0.9rem; }
     .btn-dark { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream); background: var(--black); padding: 16px 36px; text-decoration: none; white-space: nowrap; transition: background 0.2s; }
     .btn-dark:hover { background: var(--dark3); }
@@ -89,7 +89,7 @@
     .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; padding-bottom: 60px; border-bottom: 1px solid rgba(201,168,76,0.1); }
     .footer-brand h3 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--cream); margin-bottom: 16px; }
     .footer-brand p { font-size: 0.88rem; color: var(--muted); line-height: 1.8; max-width: 280px; }
-    .footer-col h4 { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .footer-col h4 { font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
     .footer-col ul { list-style: none; }
     .footer-col ul li { margin-bottom: 10px; }
     .footer-col ul a { font-size: 0.88rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
